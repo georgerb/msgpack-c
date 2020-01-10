@@ -38,6 +38,9 @@ inline float& operator>> (object o, float& v)
 	else if (o.type == type::NEGATIVE_INTEGER) {
 		v = (float)o.via.i64;
 	}
+	else if(o.type == type::NIL) {
+	    v = (float)0;
+	}
 	else {
 		throw type_error();
 	}
@@ -63,6 +66,9 @@ inline double& operator>> (object o, double& v)
 	else if (o.type == type::NEGATIVE_INTEGER) {
 		v = (double)o.via.i64;
 	}
+    else if (o.type == type::NIL) {
+        v = (double)0;
+    }
 	else {
 		throw type_error();
 	}
