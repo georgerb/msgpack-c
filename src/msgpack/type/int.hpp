@@ -54,7 +54,9 @@ namespace detail {
 				if(o.via.u64 > (uint64_t)std::numeric_limits<T>::max())
 					{ throw type_error(); }
 				return (T)o.via.u64;
-			}
+			} else if(o.type == type::NIL) {
+                return (T)0;
+            }
 			throw type_error();
 		}
 	};
