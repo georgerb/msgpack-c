@@ -26,7 +26,7 @@ namespace msgpack {
 
 inline std::string& operator>> (object o, std::string& v)
 {
-	if(o.type != type::RAW) { throw type_error(); }
+	if(o.type != type::RAW && o.type != type::NIL) { throw type_error(); }
 	v.assign(o.via.raw.ptr, o.via.raw.size);
 	return v;
 }
