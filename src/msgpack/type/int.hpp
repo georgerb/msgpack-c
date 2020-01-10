@@ -40,6 +40,8 @@ namespace detail {
 				if(o.via.i64 < (int64_t)std::numeric_limits<T>::min())
 					{ throw type_error(); }
 				return (T)o.via.i64;
+			} else if(o.type == type::NIL) {
+			    return (T)0;
 			}
 			throw type_error();
 		}
