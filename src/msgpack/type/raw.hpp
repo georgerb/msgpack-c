@@ -63,7 +63,7 @@ struct raw_ref {
 
 inline type::raw_ref& operator>> (object o, type::raw_ref& v)
 {
-	if(o.type != type::RAW) { throw type_error(); }
+	if(o.type != type::RAW && o.type != type::NIL) { throw type_error(); }
 	v.ptr  = o.via.raw.ptr;
 	v.size = o.via.raw.size;
 	return v;
